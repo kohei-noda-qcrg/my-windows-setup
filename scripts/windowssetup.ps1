@@ -131,9 +131,6 @@ winget install --silent Dropbox.Dropbox
 # QuickLook (https://apps.microsoft.com/store/detail/9NV4BS3L1H4S) is a software that provides you to preview files.
 winget install --silent QL-Win.QuickLook
 
-# Video Clip quicktool is a software that provides you to clip video files.
-winget install --silent VideoClipQuickTool.VideoClipQuickTool
-
 ##############################
 # Windows Terminal setting
 ##############################
