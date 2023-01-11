@@ -1,0 +1,8 @@
+# ignore dotfiles except .gitignore and .vscode
+.*
+!.editorconfig
+!.gitignore
+!.vscode
+README.png
+README.jpeg
+README_tmp.html
