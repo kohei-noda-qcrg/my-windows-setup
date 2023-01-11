@@ -9,7 +9,7 @@
     powershell -ExecutionPolicy ByPass -File "initialize_windows_settings.ps1"
     ```
 
-1. Restart Windows machine
+1. Reboot Windows machine
 1. Boot powershell with administrative privileges
 1. Run the folloing commands
     ```powershell
@@ -29,11 +29,7 @@
     $HOME/writeubuntusettings.sh && $HOME/ubuntusoftwareinstall.sh
     ```
 
-1. Run the following commands with powershell
-    ```powershell
-    wsl --shutdown
-    ```
-
+1. Reboot Windows machine
 1. Boot Ubuntu and run the following commands 
     ```sh
     $HOME/vscodeubuntusetup.sh
