@@ -113,6 +113,9 @@ winget install --silent Streamlabs.Streamlabs
 # Zoom (https://zoom.us/) is a video conference software.
 winget install --silent Zoom.Zoom
 
+# PowerToys (https://learn.microsoft.com/ja-jp/windows/powertoys/) is a software that provides you to customize windows.
+winget install --silent Microsoft.PowerToys
+
 ##############################
 # Windows Terminal setting
 ##############################
