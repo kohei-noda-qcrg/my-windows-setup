@@ -1,40 +1,49 @@
 # My-windows-setup
 
-```powershell
-cd /path/to/scripts
-powershell -ExecutionPolicy ByPass -File "initialize_windows_settings.ps1"
-```
+## Setup instructions
 
-Restart machine
+1. Boot powershell with administrative privileges
+1. Run the folloing commands
+    ```powershell
+    cd /path/to/scripts
+    powershell -ExecutionPolicy ByPass -File "initialize_windows_settings.ps1"
+    ```
 
-```powershell
-cd /path/to/scripts
-powershell -ExecutionPolicy ByPass -File "windowssetup.ps1"
-```
+1. Restart Windows machine
+1. Boot powershell with administrative privileges
+1. Run the folloing commands
+    ```powershell
+    cd /path/to/scripts
+    powershell -ExecutionPolicy ByPass -File "windowssetup.ps1"
+    ```
 
-After setup Ubuntu user, run following command
+1. setup Ubuntu user
+1. Boot powershell and run the following commands
+    ```powershell
+    cd /path/to/scripts
+    powershell -ExecutionPolicy Bypass -File "copy.ps1"
+    ```
 
-```powershell
-cd /path/to/scripts
-powershell -ExecutionPolicy Bypass -File "copy.ps1"
-```
+1. Boot Ubuntu and run the following commands
+    ```sh
+    $HOME/writeubuntusettings.sh && $HOME/ubuntusoftwareinstall.sh
+    ```
 
-```sh
-$HOME/writeubuntusettings.sh && $HOME/ubuntusoftwareinstall.sh
-```
+1. Run the following commands with powershell
+    ```powershell
+    wsl --shutdown
+    ```
 
-```powershell
-wsl --shutdown
-```
+1. Boot Ubuntu and run the following commands 
+    ```sh
+    $HOME/vscodeubuntusetup.sh
+    ```
 
-```sh
-$HOME/vscodeubuntusetup.sh
-```
-
-```powershell
-cd /path/to/scripts
-powershell -ExecutionPolicy ByPass -File "restore_power_settings.ps1"
-```
+1. Boot powershell and run the following commands 
+    ```powershell
+    cd /path/to/scripts
+    powershell -ExecutionPolicy ByPass -File "restore_power_settings.ps1"
+    ```
 
 ### Cisco anyconnect のインストール(HINET 外部のネットワークから HINET 内部のコンピュータ接続時に必要)
 
