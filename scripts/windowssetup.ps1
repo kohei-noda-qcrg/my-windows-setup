@@ -107,14 +107,32 @@ winget install --silent Git.Git
 # If you don't like other terminal softwares, you can use this software.
 winget install --silent TeraTermProject.teraterm --override "/VERYSILENT"
 
-# Stream Labs (https://streamlabs.com/) is a streaming software.
-winget install --silent Streamlabs.Streamlabs
+# Stream Labs OBS (https://streamlabs.com/) is a streaming software.
+winget install --silent Streamlabs.StreamlabsOBS
 
 # Zoom (https://zoom.us/) is a video conference software.
 winget install --silent Zoom.Zoom
 
 # PowerToys (https://learn.microsoft.com/ja-jp/windows/powertoys/) is a software that provides you to customize windows.
 winget install --silent Microsoft.PowerToys
+
+# Slack (https://slack.com/intl/ja-jp/) is a chat software.
+winget install --silent SlackTechnologies.Slack
+
+# Notion (https://www.notion.so/) is a note software.
+winget install --silent Notion.Notion
+
+# Kindle (https://www.amazon.co.jp/gp/digital/fiona/kcp-landing-page) is a ebook reader software.
+winget install --silent Amazon.Kindle
+
+# Dropbox (https://www.dropbox.com/ja/) is a cloud storage software.
+winget install --silent Dropbox.Dropbox
+
+# QuickLook (https://apps.microsoft.com/store/detail/9NV4BS3L1H4S) is a software that provides you to preview files.
+winget install --silent QL-Win.QuickLook
+
+# Video Clip quicktool is a software that provides you to clip video files.
+winget install --silent VideoClipQuickTool.VideoClipQuickTool
 
 ##############################
 # Windows Terminal setting
