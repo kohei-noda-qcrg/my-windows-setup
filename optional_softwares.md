@@ -28,7 +28,7 @@ winget install TechPowerUp.GPU-Z
   - Power limit settings
 
 ```powershell
-winget install afterburner
+winget install Guru3D.Afterburner
 ```
 
 ## Microphone
