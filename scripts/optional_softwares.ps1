@@ -16,14 +16,14 @@ if ( -not ( Get-Command $winget -ErrorAction "silentlycontinue" ) ) {
 # Install softwares (windows)
 ##############################
 
-winget install CPUID.CPU-Z
-winget install TechPowerUp.GPU-Z
-winget install Nvidia.GeForceExperience
-winget install Guru3D.Afterburner
-winget install Elgato.WaveLink
-winget install Adobe.Acrobat.Reader.64-bit
-winget install GIMP.GIMP
-winget install Grammarly.Grammarly
-winget install voidtools.Everything.Lite
-winget install CrystalDewWorld.CrystalDiskInfo
-winget install CrystalDewWorld.CrystalDiskMark
+winget install --silent CPUID.CPU-Z
+winget install --silent TechPowerUp.GPU-Z
+winget install --silent Nvidia.GeForceExperience
+winget install --silent Guru3D.Afterburner
+winget install --silent Elgato.WaveLink
+winget install --silent Adobe.Acrobat.Reader.64-bit
+winget install --silent GIMP.GIMP
+winget install --silent Grammarly.Grammarly
+winget install --silent voidtools.Everything.Lite
+winget install --silent CrystalDewWorld.CrystalDiskInfo
+winget install --silent CrystalDewWorld.CrystalDiskMark
