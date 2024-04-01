@@ -109,3 +109,32 @@ dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /nores
 # see also: https://docs.microsoft.com/ja-jp/windows-server/administration/openssh/openssh_install_firstuse
 # Install the OpenSSH Client
 Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
+
+#####################################
+# Show Windows10 right-click menu
+# by default in Windows11
+#####################################
+
+$is_win11 = $false
+if ($winver -ge 22000) {
+    $is_win11 = $true
+}
+
+if ($is_win11 -eq $true) {
+    # - Launch registory editor
+    # - Move to the Computer\HKEY_CURRENT_USER\Software\Classes\CLSID path
+    # - Right-click CLSID and select New(N) -> Key(K)
+    # - Create a new key {86ca1aa0-34aa-4e8b-a509-50c905bae2a2}
+    # - Selecte a new key and create another new key InprocServer32
+    # - Select InprocServer32 key and confirm that the data of value(V) is empty.
+    # - Reboot system
+
+    # Create a new key {86ca1aa0-34aa-4e8b-a509-50c905bae2a2} and InprocServer32
+    New-Item -Path "HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" -Force
+
+    # Confirm that the data of value(V) is empty.
+    Set-ItemProperty -Path "HKCU:\Software\Classes\CLSID\{86ca1aa0-34aa-4e8b-a509-50c905bae2a2}\InprocServer32" -Name "(Default)" -Value ""
+
+}
+
+Write-Host "Please reboot system to apply the changes."
