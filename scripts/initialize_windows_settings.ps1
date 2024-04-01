@@ -4,9 +4,9 @@ $ErrorActionPreference = "Stop" # Stop to executing program when error is occure
 # Check whether scripts are exist
 ##################################
 
-# If even one file($data) does not exist, the script will stop executing.
-$data = @('copy.ps1', 'copyfile.bat', 'do_not_turn_off.pow', 'restore_power_settings.ps1', 'ubuntusoftwareinstall.sh', 'Update Anyconnect Adapter Interface Metric for WSL2.xml', 'UpdateAnyConnectInterfaceMetric.ps1', 'vscodeubuntusetup.sh', 'windowssetup.ps1', "writeubuntusettings.sh")
-$data | ForEach-Object {
+# If even one of the following files does not exist, the script will exit.
+$files = @('copy.ps1', 'copyfile.bat', 'do_not_turn_off.pow', 'restore_power_settings.ps1', 'ubuntusoftwareinstall.sh', 'vscodeubuntusetup.sh', 'windowssetup.ps1', "writeubuntusettings.sh")
+$files | ForEach-Object {
     if (!(Test-Path -Path $_ -PathType Leaf)) {
         Write-Host "Error: $_ is not exist."
         Write-Host "Exit."
@@ -100,16 +100,6 @@ else {
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 # Enable Virtual Machine platform feature
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-
-######################################
-# Disable cisco any connect only wsl2
-######################################
-
-# Create a task schedule for the task to disable vpn only for wsl2 related packets.
-# See also : https://zenn.dev/hashiba/articles/wls2-on-cisco-anyconnect#%E3%83%AB%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0%E3%81%AE%E8%A8%AD%E5%AE%9A
-New-Item -Path "$Env:USERPROFILE\scripts" -Force -ItemType Directory
-Copy-Item '.\UpdateAnyConnectInterfaceMetric.ps1' "$Env:USERPROFILE\scripts"
-schtasks /create /tn autoUpdatAnyconnectAdapterMetrixForWSL2 /xml '.\Update Anyconnect Adapter Interface Metric for WSL2.xml'
 
 #####################################
 # Install Openssh client
