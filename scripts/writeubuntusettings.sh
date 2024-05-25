@@ -25,14 +25,10 @@ echo -e "SFTP setting successed"
 echo -e "export DISPLAY=\$(ipconfig.exe | grep \"IPv4\" | head -1 | awk '{print \$NF}' | awk 'sub(/\r\$/,\"\")'):0" >> "$HOME/.profile"
 echo -e "Xserver DISPLAY setting successed"
 
-# Add pip path
-echo "export PATH=\$PATH:$HOME/.local/bin" >> "$HOME/.bashrc"
-echo -e "Added pip path to ~/.bashrc"
-
-# Create ssh config template
+# ssh config
 mkdir -p "$HOME/.ssh"
-echo -e "#This is .ssh/config tempalate for the relqc server.You can use this template by editing the part of enclosed in {}.\n\nServerAliveInterval 60\nServerAliveCountMax 10\n\nHost ims\n\tHostName ccfep.center.ims.ac.jp\n\tUser {YOURNAME}\n\tIdentityfile {YOUR_SECRET_KEY_PATH}\n\tPasswordAuthentication no\n\tTCPKeepAlive yes" > "$HOME/.ssh/config"
-echo -e "Added ssh config to ~/.ssh/config"
+touch "$HOME/.ssh/config"
+echo -e "You need to write your ssh config to $HOME/.ssh/config"
 
 # Locale settings
 # See also : https://askubuntu.com/questions/683406/how-to-automate-dpkg-reconfigure-locales-with-one-command
