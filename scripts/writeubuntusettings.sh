@@ -17,10 +17,6 @@ echo -e "DNS server settings successed"
 # Enable WSL2 to change permissions on Windows files.
 sudo sh -c 'echo "[automount]\noptions = \"metadata\"" >> /etc/wsl.conf'
 
-# X11 display IP setting
-echo -e "export DISPLAY=\$(ipconfig.exe | grep \"IPv4\" | head -1 | awk '{print \$NF}' | awk 'sub(/\r\$/,\"\")'):0" >> "$HOME/.profile"
-echo -e "Xserver DISPLAY setting successed"
-
 # ssh config
 mkdir -p "$HOME/.ssh"
 touch "$HOME/.ssh/config"
