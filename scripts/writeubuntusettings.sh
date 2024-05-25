@@ -43,5 +43,5 @@ sudo dpkg-reconfigure --frontend noninteractive locales
 echo -e "Changed locale to en_US.UTF8."
 
 echo -e "============================="
-echo -e "WSL2 ubuntu setting write script ended.\nNext, you need to run ubuntusoftwareinstall.sh.\nTo run this script, Type $HOME/ubuntusoftwareinstall.sh"
+echo -e "WSL2 ubuntu setting write script ended."
 echo -e "============================="
