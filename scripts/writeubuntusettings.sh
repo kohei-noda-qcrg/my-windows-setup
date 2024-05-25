@@ -45,3 +45,5 @@ echo -e "Changed locale to en_US.UTF8."
 echo -e "============================="
 echo -e "WSL2 ubuntu setting write script ended."
 echo -e "============================="
+
+bash ubuntu-setup.sh
