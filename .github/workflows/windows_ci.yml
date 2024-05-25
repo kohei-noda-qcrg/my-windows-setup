@@ -7,5 +7,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Setup Windows
         run: |
-            powershell -ExecutionPolicy Bypass -File ".\scripts\initialize_windows_settings.ps1"
-            powershell -ExecutionPolicy Bypass -File ".\scripts\windowssetup.ps1"
+            cd .\scripts
+            powershell -ExecutionPolicy Bypass -File "initialize_windows_settings.ps1"
+            powershell -ExecutionPolicy Bypass -File "windowssetup.ps1"
