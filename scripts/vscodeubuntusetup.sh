@@ -27,8 +27,12 @@ code --install-extension sgryjp.japanese-word-handler --force # Japanese word ju
 code --install-extension ms-vscode.hexeditor --force # Binary viewer
 code --install-extension EditorConfig.EditorConfig --force # Force code rules
 
-# C/C++ (required to install Modern Fortran extension)
+# C/C++
 code --install-extension ms-vscode.cpptools-extension-pack --force
+
+# Rust
+code --install-extension rust-lang.rust-analyzer --force # Rust language support
+code --install-extension tamasfe.even-better-toml --force # TOML language support
 
 # Git/Github
 code --install-extension mhutchie.git-graph --force # View git history as a graphical tree

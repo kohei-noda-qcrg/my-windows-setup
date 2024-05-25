@@ -60,6 +60,9 @@ python -m pip install numpy scipy pandas matplotlib --no-warn-script-location
 # Install python packages for testing
 python -m pip install pytest pytest-cov --no-warn-script-location
 
+# Install rustup
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
 sudo apt install git
 if [ -z ${CI+x} ]; then
     # Install ubuntu-setup
