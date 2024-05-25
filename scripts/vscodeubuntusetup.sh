@@ -34,11 +34,14 @@ code --install-extension ms-vscode.cpptools-extension-pack --force
 code --install-extension rust-lang.rust-analyzer --force # Rust language support
 code --install-extension tamasfe.even-better-toml --force # TOML language support
 
-# Git/Github
+# Git
 code --install-extension mhutchie.git-graph --force # View git history as a graphical tree
 code --install-extension donjayamanne.githistory --force # Add convenient features to Vscode Source control tab
-code --install-extension GitHub.vscode-pull-request-github --force # Support for Github, github pull requests and issues
 code --install-extension eamodio.gitlens --force # Visualize code authorship and so on
+
+# GitHub
+code --install-extension GitHub.vscode-pull-request-github --force # Pull request and issues support for Github
+code --install-extension GitHub.copilot --force # AI code completion
 
 # Markdown
 code --install-extension yzane.markdown-pdf --force # Convert Markdown to pdf
