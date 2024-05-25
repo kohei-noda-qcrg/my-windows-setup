@@ -1,6 +1,6 @@
 #!/bin/bash
 set -euo pipefail # Abort script when error is occured.
-current_dir=$(cd $(dirname $0); pwd)
+current_dir="$(cd "$(dirname "$0")"; pwd)"
 cd $current_dir
 
 echo -e "============================="
