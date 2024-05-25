@@ -1,3 +1,5 @@
+$ErrorActionPreference = "Stop" # Stop to executing program when error is occured
+
 #########################
 # Install wsl (Ubuntu)
 #########################
@@ -74,10 +76,30 @@ elseif ($winver -lt 19041){ # Cannot use wsl --install command under 19041 https
 $winget = "winget"
 if ( -not ( Get-Command $winget -ErrorAction "silentlycontinue" ) ) {
     Write-Host "winget command does not exist.`n Try to install winget manually using invoke-webrequest and Add-AppxPackage!"
-    invoke-webrequest -uri https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx -outfile $Env:USERPROFILE\Downloads\Microsoft.VCLibs.x64.14.00.Desktop.appx -UseBasicParsing
-    invoke-webrequest -uri https://github.com/microsoft/winget-cli/releases/download/v1.0.12576/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle -outfile $Env:USERPROFILE\Downloads\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle -UseBasicParsing
-    Add-AppxPackage -Path $Env:USERPROFILE\Downloads\Microsoft.VCLibs.x64.14.00.Desktop.appx
-    Add-AppxPackage -Path $Env:USERPROFILE\Downloads\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle
+    $install_path = "$Env:USERPROFILE\Downloads\winget-cli-install-temp"
+    mkdir -p $install_path
+    Invoke-WebRequest -Uri https://www.nuget.org/api/v2/package/Microsoft.UI.Xaml/2.8.6 -outfile $install_path\microsoft.ui.xaml.2.8.6.zip -UseBasicParsing
+    Write-Host "Downloaded Microsoft.UI.Xaml.2.8.6.zip"
+    invoke-webrequest -uri https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx -outfile $install_path\Microsoft.VCLibs.x64.14.00.Desktop.appx -UseBasicParsing
+    Write-Host "Downloaded Microsoft.VCLibs.x64.14.00.Desktop.appx"
+    # Get the latest version URL of winget-cli from the release page to download_url variable.
+    $browser_download_urls = Invoke-RestMethod https://api.github.com/repos/microsoft/winget-cli/releases/latest  | Select-Object -ExpandProperty assets | Select-Object -ExpandProperty browser_download_url
+    $download_url_msixbundle = $browser_download_urls | Where-Object { $_ -like "*Microsoft.DesktopAppInstaller*.msixbundle" }
+    $download_url_license = $browser_download_urls | Where-Object { $_ -like "*_License*.xml" }
+    # Download the latest version of winget-cli
+    Invoke-WebRequest -uri $download_url_msixbundle -UseBasicParsing -outfile $install_path\Microsoft.DesktopAppInstaller.msixbundle
+    Invoke-WebRequest -uri $download_url_license -UseBasicParsing -outfile $install_path\Microsoft.DesktopAppInstaller_License.xml
+    Write-Host "Downloaded Microsoft.DesktopAppInstaller.msixbundle and Microsoft.DesktopAppInstaller_License.xml"
+    Expand-Archive -Path  $install_path\microsoft.ui.xaml.2.8.6.zip -DestinationPath  $install_path\microsoft.ui.xaml.2.8.6
+    Add-AppxPackage -Path $install_path\microsoft.ui.xaml.2.8.6\tools\AppX\x64\Release\Microsoft.UI.Xaml.2.8.appx
+    Write-Host "Installed Microsoft.UI.Xaml.2.8.appx"
+    Add-AppxPackage -Path $install_path\Microsoft.VCLibs.x64.14.00.Desktop.appx
+    Write-Host "Installed Microsoft.VCLibs.x64.14.00.Desktop.appx"
+    Add-AppxProvisionedPackage -Online -PackagePath $install_path\Microsoft.DesktopAppInstaller.msixbundle -LicensePath $install_path\Microsoft.DesktopAppInstaller_License.xml
+    Add-AppxPackage -Path $install_path\Microsoft.DesktopAppInstaller.msixbundle
+    Write-Host "Installed Microsoft.DesktopAppInstaller.msixbundle"
+    Write-Host "winget command is successfully installed!"
+    rm -r $install_path
 }
 
 ##############################
