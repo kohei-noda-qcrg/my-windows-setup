@@ -54,37 +54,45 @@ mkdir -p "$HOME/.vscode-server/data/Machine"
 settingfilepath="$HOME/.vscode-server/data/Machine/settings.json"
 if [ -e settingfilepath ]; then
  cp "$settingfilepath" "$HOME/.vscode-server/data/Machine/settings.json.bak"
+else
+ touch "$settingfilepath"
 fi
 # Check fortls exsists
+set +e
 fortlspath=$(command -v fortls)
+set -e
 if [ "$fortlspath" ]; then
     fortls=${fortlspath}
 else
     fortls=${HOME}/.local/bin/fortls
-    print "!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!="
-    print "!!! Warning !!!"
-    print "foltls is not installed on your machine.\nYou should install fortls manually with the following command.\npip install fortls"
-    print "!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!="
+    echo "!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!="
+    echo "!!! Warning !!!"
+    echo "foltls is not installed on your machine.\nYou should install fortls manually with the following command.\npip install fortls"
+    echo "!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!="
 fi
 
 # Write settings.json for Modern Fortran developers
 echo -e "{\n\t\"fortran.linter.compiler\":\t\"gfortran\",\n\t\"fortran.formatting.fprettifyArgs\": [\"-i 4\"],\n\t\"fortran.formatting.formatter\": \"fprettify\",\n\t\"fortran.fortls.path\":\t\"${fortls}\",\n}" > "$settingfilepath"
 
 # Check gfortran exsists
+set +e
 gfortranpath=$(command -v gfortran)
+set -e
 if [ ! "$gfortranpath" ]; then
-    print "!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!="
-    print "!!! Warning !!!"
-    print "gfortran is not installed on your machine.\nYou should install gfortran manually with the following command.\nsudo apt install gfortran"
-    print "!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!="
+    echo "!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!="
+    echo "!!! Warning !!!"
+    echo "gfortran is not installed on your machine.\nYou should install gfortran manually with the following command.\nsudo apt install gfortran"
+    echo "!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!="
 fi
 # Check gfortran exsists
+set +e
 fprettifypath=$(command -v fprettify)
+set -e
 if [ ! "$fprettifypath" ]; then
-    print "!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!="
-    print "!!! Warning !!!"
-    print "fprettify is not installed on your machine.\nYou should install fprettify manually with the following command.\npip install fprettify"
-    print "!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!="
+    echo "!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!="
+    echo "!!! Warning !!!"
+    echo "fprettify is not installed on your machine.\nYou should install fprettify manually with the following command.\npip install fprettify"
+    echo "!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!="
 fi
 
 echo -e "============================="
