@@ -24,22 +24,19 @@ sudo apt-get install -y libbz2-dev libdb-dev libreadline-dev libffi-dev libgdbm-
 # Install pip and python
 sudo apt-get install -y python3-pip python3-dev python-is-python3
 
-# Install gfortran for VScode debugging
-sudo apt-get install -y gfortran
-
 # Update pip
 python -m pip install -U pip --no-warn-script-location
 
 # Install python packages for numerical calculation
 python -m pip install numpy scipy pandas matplotlib --no-warn-script-location
 
-# Install fortran-language-server for VScode extention (Fortran Intellisense)
-python -m pip install fortls fprettify pytest --no-warn-script-location
+# Install python packages for testing
+python -m pip install pytest pytest-cov --no-warn-script-location
 
 sudo apt install git
 git clone https://github.com/kohei-noda-qcrg/ubuntu-setup.git "$HOME/ubuntu-setup"
 cd "$HOME/ubuntu-setup"
-./setup --wsl --hpc
+./setup --wsl
 
 echo -e "============================="
 echo -e "WSL2 ubuntu setup script ended. Please restart WSL2.\n1. Open powershell\n2. Type \" wsl --shutdown \"\n3. Restart Ubuntu"
