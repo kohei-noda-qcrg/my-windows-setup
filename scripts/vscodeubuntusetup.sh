@@ -30,10 +30,6 @@ code --install-extension EditorConfig.EditorConfig --force # Force code rules
 # C/C++ (required to install Modern Fortran extension)
 code --install-extension ms-vscode.cpptools-extension-pack --force
 
-# Fortran
-code --install-extension ekibun.fortranbreaker --force # Fortran breakpoint support
-code --install-extension fortran-lang.linter-gfortran --force # Fortran linter, formatter, syntax highlight
-
 # Git/Github
 code --install-extension mhutchie.git-graph --force # View git history as a graphical tree
 code --install-extension donjayamanne.githistory --force # Add convenient features to Vscode Source control tab
@@ -43,57 +39,6 @@ code --install-extension eamodio.gitlens --force # Visualize code authorship and
 # Markdown
 code --install-extension yzane.markdown-pdf --force # Convert Markdown to pdf
 code --install-extension DavidAnson.vscode-markdownlint --force # Markdown linter
-
-##########################################
-# Install vscode-server and launch VScode
-##########################################
-code .
-
-# Create VScode setting file ( for WSL2 distribution virtual matchine )
-mkdir -p "$HOME/.vscode-server/data/Machine"
-settingfilepath="$HOME/.vscode-server/data/Machine/settings.json"
-if [ -e settingfilepath ]; then
- cp "$settingfilepath" "$HOME/.vscode-server/data/Machine/settings.json.bak"
-else
- touch "$settingfilepath"
-fi
-# Check fortls exsists
-set +e
-fortlspath=$(command -v fortls)
-set -e
-if [ "$fortlspath" ]; then
-    fortls=${fortlspath}
-else
-    fortls=${HOME}/.local/bin/fortls
-    echo "!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!="
-    echo "!!! Warning !!!"
-    echo "foltls is not installed on your machine.\nYou should install fortls manually with the following command.\npip install fortls"
-    echo "!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!="
-fi
-
-# Write settings.json for Modern Fortran developers
-echo -e "{\n\t\"fortran.linter.compiler\":\t\"gfortran\",\n\t\"fortran.formatting.fprettifyArgs\": [\"-i 4\"],\n\t\"fortran.formatting.formatter\": \"fprettify\",\n\t\"fortran.fortls.path\":\t\"${fortls}\",\n}" > "$settingfilepath"
-
-# Check gfortran exsists
-set +e
-gfortranpath=$(command -v gfortran)
-set -e
-if [ ! "$gfortranpath" ]; then
-    echo "!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!="
-    echo "!!! Warning !!!"
-    echo "gfortran is not installed on your machine.\nYou should install gfortran manually with the following command.\nsudo apt install gfortran"
-    echo "!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!="
-fi
-# Check gfortran exsists
-set +e
-fprettifypath=$(command -v fprettify)
-set -e
-if [ ! "$fprettifypath" ]; then
-    echo "!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!="
-    echo "!!! Warning !!!"
-    echo "fprettify is not installed on your machine.\nYou should install fprettify manually with the following command.\npip install fprettify"
-    echo "!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!=!="
-fi
 
 echo -e "============================="
 echo -e "End vscodeubuntusetup.sh"
