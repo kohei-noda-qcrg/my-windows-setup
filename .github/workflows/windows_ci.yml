@@ -1,0 +1,11 @@
+name: "Windows CI"
+on: push
+jobs:
+  windows-setup-test:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Windows
+        run: |
+            powershell -ExecutionPolicy Bypass -File ".\scripts\initialize_windows_settings.ps1"
+            powershell -ExecutionPolicy Bypass -File ".\scripts\windowssetup.ps1"
