@@ -9,6 +9,6 @@ jobs:
         run: |
             cd .\scripts
             powershell -ExecutionPolicy Bypass -File "initialize_windows_settings.ps1"
-            powershell -ExecutionPolicy Bypass -File "windowssetup.ps1"
+            powershell -ExecutionPolicy Bypass -File "winget.ps1"
             powershell -ExecutionPolicy Bypass -File "optional_softwares.ps1"
             powershell -ExecutionPolicy Bypass -File "restore_power_settings.ps1"
