@@ -1,5 +1,3 @@
-# run scripts/ubuntusoftwareinstall.sh
-
 name: "WSL CI"
 on: push
 jobs:
@@ -8,4 +6,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run software install script
-        run: bash scripts/ubuntusoftwareinstall.sh
+        run: bash scripts/ubuntusoftwareinstall.sh --ci
