@@ -30,11 +30,6 @@
     ```
 
 1. Reboot Windows machine
-1. Boot Ubuntu and run the following commands 
-    ```sh
-    $HOME/vscodeubuntusetup.sh
-    ```
-
 1. Boot powershell and run the following commands 
     ```powershell
     cd /path/to/scripts
