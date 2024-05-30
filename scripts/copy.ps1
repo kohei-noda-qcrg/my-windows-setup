@@ -1,3 +1,3 @@
 wsl --set-default Ubuntu
-wsl cp './ubuntusoftwareinstall.sh' ~
+wsl cp './ubuntu-setup.sh' ~
 wsl cp './writeubuntusettings.sh' ~
