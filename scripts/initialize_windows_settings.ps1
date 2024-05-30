@@ -137,4 +137,19 @@ if ($is_win11 -eq $true) {
 
 }
 
+# CapsLock -> Ctrl
+$regpath = "HKLM:\SYSTEM\CurrentControlSet\Control\Keyboard Layout"
+$regname = "Scancode Map"
+$scancodeMap = @(
+    0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00,
+    0x02, 0x00, 0x00, 0x00,
+    0x1d, 0x00, 0x3a, 0x00,
+    0x00, 0x00, 0x00, 0x00
+)
+$binary = [byte[]] $scancodeMap
+Set-ItemProperty -Path $regpath -Name $regname -Value $binary
+Write-Host "CapsLock -> Ctrl"
+
+
 Write-Host "Please reboot system to apply the changes."
