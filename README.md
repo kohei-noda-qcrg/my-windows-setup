@@ -26,7 +26,7 @@
 
 1. Boot Ubuntu and run the following commands
     ```sh
-    $HOME/writeubuntusettings.sh && $HOME/ubuntusoftwareinstall.sh
+    $HOME/writeubuntusettings.sh && $HOME/ubuntu-setup.sh
     ```
 
 1. Reboot Windows machine
