@@ -4,13 +4,6 @@ $ErrorActionPreference = "Stop" # Stop to executing program when error is occure
 # Install wsl (Ubuntu)
 #########################
 Function ManuallyInstallWSL2() {
-    # WSL 2 Kernel Update
-    Write-Host "Start downloading a wsl2 kernel update file"
-    Invoke-WebRequest -Uri https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi -OutFile wsl_update_x64.msi -UseBasicParsing
-    Write-Host "Downloaded a wsl2 kernel update file"
-    msiexec /i wsl_update_x64.msi /passive /norestart
-    Write-Host "Applied a wsl2 kernel update file"
-
     # Set default WSL version to 2
     wsl --set-default-version 2
     Write-Host "The default version of wsl was set to 2"
@@ -21,6 +14,12 @@ Function ManuallyInstallWSL2() {
     Write-Host "Ubuntu installed!"
 }
 
+# WSL 2 Kernel Update
+Write-Host "Start downloading a wsl2 kernel update file"
+Invoke-WebRequest -Uri https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi -OutFile wsl_update_x64.msi -UseBasicParsing
+Write-Host "Downloaded a wsl2 kernel update file"
+msiexec /i wsl_update_x64.msi /passive /norestart
+Write-Host "Applied a wsl2 kernel update file"
 
 # Check if wsl command is recognized on your computer (KB5004296 is required)
 # See also : https://forest.watch.impress.co.jp/docs/news/1342078.html
