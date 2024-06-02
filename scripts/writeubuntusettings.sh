@@ -17,6 +17,9 @@ echo -e "DNS server settings successed"
 # Enable WSL2 to change permissions on Windows files.
 sudo sh -c 'echo "[automount]\noptions = \"metadata\"" >> /etc/wsl.conf'
 
+# Launch systemd instead of Microsoft init.
+sudo sh -c 'echo "[boot]\nsystemd=true" >> /etc/wsl.conf' 
+
 # ssh config
 mkdir -p "$HOME/.ssh"
 touch "$HOME/.ssh/config"
