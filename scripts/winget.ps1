@@ -1,4 +1,5 @@
 $ErrorActionPreference = "Stop" # Stop to executing program when error is occured
+$PSDefaultParameterValues['Out-File:Encoding'] = 'utf8'
 
 ##############################
 # winget setup
@@ -99,3 +100,6 @@ $git_bash_terminal_setting="{
     `"startingDirectory`": `"%USERPROFILE%`"
 }"
 echo $git_bash_terminal_setting > ../git_settings.json
+
+# Windows Terminal powershell OSC9;9 cwd (https://github.com/microsoft/terminal/issues/8166)
+cat Microsoft.PowerShell_profile.ps1 >> $PROMPT
