@@ -39,7 +39,13 @@ Function cantgetGUIDerr(){
 }
 
 $defaultsetting=-1
-$defaultsetting= Get-Content "$Env:USERPROFILE\power_guid_default_setting\default_power_setting_guid.txt"
+$guid_filepath = "$Env:USERPROFILE\power_guid_default_setting\default_power_setting_guid.txt"
+if (-not (Test-Path $guid_filepath)){
+    cantgetGUIDerr
+    exit
+}
+
+$defaultsetting= Get-Content $guid_filepath
 Write-Host "defaultsetting is "$defaultsetting
 if ($defaultsetting -ne -1){
     powercfg -setactive $defaultsetting
