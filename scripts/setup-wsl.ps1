@@ -1,4 +1,5 @@
 $ErrorActionPreference = "Stop" # Stop to executing program when error is occured
+$ProgressPreference = 'SilentlyContinue'
 
 #########################
 # Install wsl (Ubuntu)
