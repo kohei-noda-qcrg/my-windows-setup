@@ -6,6 +6,7 @@ $PSDefaultParameterValues['Out-File:Encoding'] = 'utf8'
 ##############################
 # If you don't have winget, Manually install winget on $Env:USERPROFILE\Downloads Folder.
 # See also : https://zenn.dev/nobokko/articles/idea_winget_wsb#windows%E3%82%B5%E3%83%B3%E3%83%89%E3%83%9C%E3%83%83%E3%82%AF%E3%82%B9%E3%81%ABwinget%E3%82%92%E5%B0%8E%E5%85%A5%E3%81%97%E3%82%88%E3%81%86%EF%BC%81%E3%81%A8%E3%81%84%E3%81%86%E8%A9%B1
+$ProgressPreference = 'SilentlyContinue'
 $winget = "winget"
 if ( -not ( Get-Command $winget -ErrorAction "silentlycontinue" ) ) {
     Write-Host "winget command does not exist.`n Try to install winget manually using invoke-webrequest and Add-AppxPackage!"
