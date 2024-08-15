@@ -104,3 +104,6 @@ echo $git_bash_terminal_setting > ../git_settings.json
 
 # Windows Terminal powershell OSC9;9 cwd (https://github.com/microsoft/terminal/issues/8166)
 cat Microsoft.PowerShell_profile.ps1 >> $PROMPT
+
+# Install posh-git module for git auto-completion
+Install-Module posh-git -Scope CurrentUser -Force

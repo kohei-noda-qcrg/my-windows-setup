@@ -10,3 +10,5 @@ function git-clean() {
     git fetch --prune
     git branch -vv | findstr " gone]" | %{(-split $_)[0]} | %{git branch -D $_}
 }
+
+Import-Module posh-git
