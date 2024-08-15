@@ -5,3 +5,8 @@ function prompt {
     "PS $p$('>' * ($nestedPromptLevel + 1)) ";
     Write-Host "$ansi_escape]9;9;$converted_path$ansi_escape\"
 }
+
+function git-clean() {
+    git fetch --prune
+    git branch -vv | findstr " gone]" | %{(-split $_)[0]} | %{git branch -D $_}
+}
