@@ -11,4 +11,14 @@ function git-clean() {
     git branch -vv | findstr " gone]" | %{(-split $_)[0]} | %{git branch -D $_}
 }
 
+function git-su() { # submodule update
+    git pull
+    git submodule update --init --recursive
+    git submodule update --recursive --checkout
+    git submodule foreach --recursive git submodule update --checkout
+    Get-ChildItem -Recurse -Force | Where-Object { $_.Attributes -match "ReparsePoint" -and $_.Length -eq 0 } | Remove-Item -Force
+    git submodule foreach --recursive git reset --hard
+    git reset --hard
+}
+
 Import-Module posh-git
