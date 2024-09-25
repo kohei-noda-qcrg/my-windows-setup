@@ -56,3 +56,8 @@ elseif ($winver -lt 19041){ # Cannot use wsl --install command under 19041 https
         ManuallyInstallWSL2
     }
 }
+
+# enable dns tunneling (https://learn.microsoft.com/ja-jp/windows/wsl/networking#dns-tunneling)
+$wslconfig = "$env:USERPROFILE\.wslconfig"
+echo "[wsl2]" >> $wslconfig
+echo "dnsTunneling=true" >> $wslconfig
