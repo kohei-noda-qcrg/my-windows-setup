@@ -59,6 +59,9 @@ winget install --silent --scope user WinSCP.WinSCP
 # Git (https://gitforwindows.org/) supports git command on windows.
 winget install --silent Git.Git
 
+# GitHub CLI (https://cli.github.com/)
+winget install --silent GitHub.cli
+
 # Teraterm (https://ttssh2.osdn.jp/) is a terminal software.
 # If you don't like other terminal softwares, you can use this software.
 winget install --silent TeraTermProject.teraterm --override "/VERYSILENT"
