@@ -90,6 +90,17 @@ winget install --silent Dropbox.Dropbox
 # QuickLook (https://apps.microsoft.com/store/detail/9NV4BS3L1H4S) is a software that provides you to preview files.
 winget install --silent QL-Win.QuickLook
 
+# AutoHotkey V2 (https://www.autohotkey.com/) is key remap tool
+winget install --slient AutoHotkey.AutoHotkey
+
+##############################
+# AutoHotkey setting
+##############################
+# copy alt-ime.ahk to startup folder
+$ahk_file_path = "$PSScriptRoot\alt-ime.ahk"
+$startup_path = "$Env:APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
+Copy-Item "$ahk_file_path" "$startup_path" -Force
+
 ##############################
 # Windows Terminal setting
 ##############################
