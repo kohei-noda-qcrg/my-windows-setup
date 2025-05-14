@@ -74,7 +74,7 @@ winget install --silent Notion.Notion
 winget install --silent QL-Win.QuickLook
 
 # AutoHotkey V2 (https://www.autohotkey.com/) is key remap tool
-winget install --slient AutoHotkey.AutoHotkey
+winget install --silent AutoHotkey.AutoHotkey
 
 ##############################
 # AutoHotkey setting
