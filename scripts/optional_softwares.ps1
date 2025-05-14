@@ -28,3 +28,8 @@ winget install --silent Grammarly.Grammarly
 winget install --silent voidtools.Everything.Lite
 winget install --silent CrystalDewWorld.CrystalDiskInfo
 winget install --silent CrystalDewWorld.CrystalDiskMark
+winget install --silent --scope user WinSCP.WinSCP
+winget install --silent TeraTermProject.teraterm --override "/VERYSILENT"
+winget install --silent Zoom.Zoom
+winget install --silent Amazon.Kindle
+winget install --silent Dropbox.Dropbox
