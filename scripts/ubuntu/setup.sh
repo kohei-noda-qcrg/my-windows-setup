@@ -8,8 +8,10 @@ current_dir="$(
 cd $current_dir
 
 echo -e "============================="
-echo -e "Start ubuntu-setup.sh"
+echo -e "Start $0"
 echo -e "============================="
+
+bash writeubuntusettings.sh
 
 # Update packages
 sudo dpkg --configure -a
