@@ -23,17 +23,8 @@ winget install --silent Git.Git
 # GitHub CLI (https://cli.github.com/)
 winget install --silent GitHub.cli
 
-# Stream Labs OBS (https://streamlabs.com/) is a streaming software.
-winget install --silent Streamlabs.StreamlabsOBS
-
 # PowerToys (https://learn.microsoft.com/ja-jp/windows/powertoys/) is a software that provides you to customize windows.
 winget install --silent Microsoft.PowerToys
-
-# Slack (https://slack.com/intl/ja-jp/) is a chat software.
-winget install --silent SlackTechnologies.Slack
-
-# Notion (https://www.notion.so/) is a note software.
-winget install --silent Notion.Notion
 
 # QuickLook (https://apps.microsoft.com/store/detail/9NV4BS3L1H4S) is a software that provides you to preview files.
 winget install --silent QL-Win.QuickLook

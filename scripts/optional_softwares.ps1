@@ -33,3 +33,6 @@ winget install --silent TeraTermProject.teraterm --override "/VERYSILENT"
 winget install --silent Zoom.Zoom
 winget install --silent Amazon.Kindle
 winget install --silent Dropbox.Dropbox
+winget install --silent Notion.Notion
+winget install --silent SlackTechnologies.Slack
+winget install --silent Streamlabs.StreamlabsOBS
