@@ -2,21 +2,9 @@ $ErrorActionPreference = "Stop" # Stop to executing program when error is occure
 $PSDefaultParameterValues['Out-File:Encoding'] = 'utf8'
 
 ##############################
-# Install winget
-##############################
-
-if (-not (Get-Command winget -ErrorAction SilentlyContinue)) {
-    Write-Host "winget command does not exist. Trying to install winget manually..."
-    $ProgressPreference = 'SilentlyContinue'
-    Install-PackageProvider -Name NuGet -Force | Out-Null
-    Install-Module -Name Microsoft.WinGet.Client -Force -Repository PSGallery | Out-Null
-    Repair-WinGetPackageManager -AllUsers
-    Write-Host "winget command installed successfully."
-}
-
-##############################
 # Install softwares (windows)
 ##############################
+. "$PSScriptRoot\install-winget.ps1"
 
 # WindowsTerminal (https://www.microsoft.com/ja-jp/p/windows-terminal/9n0dx20hk701)
 # is a powerful terminal software. I recommend you to use this software when you use WSL2 ubuntu.
