@@ -14,7 +14,6 @@
 1. Run the folloing commands
     ```powershell
     cd /path/to/scripts
-    powershell -ExecutionPolicy ByPass -File "install-winget.ps1"
     powershell -ExecutionPolicy ByPass -File "winget.ps1"
     powershell -ExecutionPolicy ByPass -File "setup-wsl.ps1"
     ```
