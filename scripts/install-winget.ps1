@@ -1,0 +1,1 @@
+Invoke-RestMethod https://github.com/asheroto/winget-install/releases/latest/download/winget-install.ps1 | Invoke-Expression
