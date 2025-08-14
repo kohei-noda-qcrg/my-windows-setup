@@ -9,7 +9,6 @@ jobs:
         script:
           - initialize_windows_settings.ps1 restore_power_settings.ps1
           - winget.ps1
-          - optional_softwares.ps1
     steps:
       - uses: actions/checkout@v5
       - name: Run ${{ matrix.script }}
