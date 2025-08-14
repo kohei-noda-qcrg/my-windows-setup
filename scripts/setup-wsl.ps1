@@ -17,7 +17,8 @@ if ($winver -lt $minwslver) {
 }
 
 # Install latest WSL
-winget install --silent Microsoft.WSL
+powershell.exe "$PSScriptRoot\install-winget.ps1"
+winget install --silent Microsoft.WSL --accept-package-agreements --accept-source-agreements
 
 # disto needs to be one of 'archlinux' or 'ubuntu'
 if ($distro -in @('archlinux', 'ubuntu')) {
