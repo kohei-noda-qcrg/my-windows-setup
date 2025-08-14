@@ -2,6 +2,7 @@
 # Install optional softwares
 ##############################
 powershell.exe "$PSScriptRoot\install-winget.ps1"
+winget upgrade --accept-source-agreements --accept-package-agreements # need to accept agreements when it is first time to use winget
 
 winget install --silent CPUID.CPU-Z
 winget install --silent TechPowerUp.GPU-Z
