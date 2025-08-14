@@ -4,7 +4,7 @@ $PSDefaultParameterValues['Out-File:Encoding'] = 'utf8'
 ##############################
 # Install softwares (windows)
 ##############################
-. "$PSScriptRoot\install-winget.ps1"
+powershell.exe "$PSScriptRoot\install-winget.ps1"
 
 # WindowsTerminal (https://www.microsoft.com/ja-jp/p/windows-terminal/9n0dx20hk701)
 # is a powerful terminal software. I recommend you to use this software when you use WSL2 ubuntu.

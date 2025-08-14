@@ -5,7 +5,7 @@ $ErrorActionPreference = "Stop" # Stop to executing program when error is occure
 ##################################
 
 # If even one of the following files does not exist, the script will exit.
-$files = @('copy.ps1', 'copyfile.bat', 'do_not_turn_off.pow', 'install-winget.ps1', 'Microsoft.Powershell_profile.ps1', 'restore_power_settings.ps1', 'setup-wsl.ps1', 'ubuntu-setup.sh', 'windowssetup.ps1', 'winget.ps1', 'writeubuntusettings.sh')
+$files = @('copy.ps1', 'do_not_turn_off.pow', 'install-winget.ps1', 'Microsoft.Powershell_profile.ps1', 'restore_power_settings.ps1', 'setup-wsl.ps1', 'winget.ps1')
 $files | ForEach-Object {
     if (!(Test-Path -Path $_ -PathType Leaf)) {
         Write-Host "Error: $_ is not exist."
@@ -100,6 +100,11 @@ else {
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
 # Enable Virtual Machine platform feature
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+
+#####################################
+# Install winget client
+#####################################
+powershell.exe "$PSScriptRoot\install-winget.ps1"
 
 #####################################
 # Install Openssh client

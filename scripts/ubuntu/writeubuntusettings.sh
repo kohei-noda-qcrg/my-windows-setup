@@ -3,14 +3,14 @@ set -euo pipefail # Abort script when error is occured.
 cd "$(dirname "$0")"
 
 echo -e "============================="
-echo -e "Start writeubuntusettings.sh"
+echo -e "Start $0"
 echo -e "============================="
 
 # Enable WSL2 to change permissions on Windows files.
 sudo sh -c 'echo "[automount]\noptions = \"metadata\"" >> /etc/wsl.conf'
 
 # Launch systemd instead of Microsoft init.
-sudo sh -c 'echo "[boot]\nsystemd=true" >> /etc/wsl.conf' 
+sudo sh -c 'echo "[boot]\nsystemd=true" >> /etc/wsl.conf'
 
 # ssh config
 mkdir -p "$HOME/.ssh"
@@ -26,7 +26,5 @@ sudo dpkg-reconfigure --frontend noninteractive locales
 echo -e "Changed locale to en_US.UTF8."
 
 echo -e "============================="
-echo -e "WSL2 ubuntu setting write script ended."
+echo -e "WSL2 $0 ended."
 echo -e "============================="
-
-bash ubuntu-setup.sh
